@@ -38,8 +38,11 @@ export async function POST(request){
         authorImg: `${formData.get('authorImg')}`
     }
 
+    await BlogModel.create(blogData);
 
 
-    return NextResponse.json({imgUrl});
+
+
+    return NextResponse.json({success: true, msg: "Blog Added."});
 
 }
