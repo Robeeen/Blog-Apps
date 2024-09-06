@@ -17,11 +17,11 @@ const Sidebar = () => {
                         <Image src={assets.add_icon} width={28} alt='' /><p>Add Blog</p>
                     </Link>
 
-                    <Link href='/admin/addProduct' className='flex mt-3 items-center border broder-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]'>
+                    <Link href='/admin/blogList' className='flex mt-3 items-center border broder-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]'>
                         <Image src={assets.add_icon} width={28} alt='' /><p>Add Blog</p>
                     </Link>
 
-                    <Link href='/admin/addProduct' className='flex mt-3 items-center border broder-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]'>
+                    <Link href='/admin/subsCriptions' className='flex mt-3 items-center border broder-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]'>
                         <Image src={assets.add_icon} width={28} alt='' /><p>Add Blog</p>
                     </Link>
                 </div>
