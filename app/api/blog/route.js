@@ -10,19 +10,20 @@ const LoadDB = async () => {
 
 LoadDB();
 
-//api endpoint to fetch all blog post from front-end
+//create an api endpoint to fetch all blog post from front-end
 export async function GET(request){
     
     const blogs = await BlogModel.find({});
     return NextResponse.json({blogs})
 }
 
-//api endpoint for creating new blog from - admin panel
+//creat an api endpoint for creating new blog from - admin panel
 export async function POST(request){
 
     const formData = await request.formData();
-    const timeStamp = Date.now();
 
+    //get the image from the blog
+    const timeStamp = Date.now();
     const image = formData.get('image');
     const imageByteData = await image.arrayBuffer();
     const buffer = Buffer.from(imageByteData);
@@ -31,8 +32,7 @@ export async function POST(request){
     await writeFile(path, buffer);
     const imgUrl = `/${timeStamp}_${image.name}`;
 
-    //get data from the form
-
+    //get the form field data
     const blogData = {
         title: `${formData.get('title')}`,
         description: `${formData.get('description')}`,
@@ -45,8 +45,5 @@ export async function POST(request){
     await BlogModel.create(blogData);
     console.log("Blog Saved.");
 
-
-
     return NextResponse.json({success: true, msg: "Blog Added."});
-
 }

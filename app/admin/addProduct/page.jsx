@@ -18,7 +18,6 @@ const page = () => {
   });
 
   const onChangeHandler = (event) => {
-
     const name = event.target.name;
     const value = event.target.value;
     setData(data => ({ ...data, [name]: value }));
@@ -37,6 +36,7 @@ const page = () => {
     formData.append('image', image)
     
     const response = await axios.post('/api/blog', formData);
+
     if(response.data.success){
       toast.success(response.data.msg); //Toast notification
       setImage(false);
@@ -52,8 +52,6 @@ const page = () => {
     }
 
   }
-
-
 
   return (
     <>
