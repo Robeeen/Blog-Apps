@@ -12,8 +12,9 @@ LoadDB();
 
 //api endpoint to fetch all blog post from front-end
 export async function GET(request){
-    console.log("Got GET Req");
-    return NextResponse.json({msg: "Test"})
+    
+    const blogs = await BlogModel.find({});
+    return NextResponse.json({blogs})
 }
 
 //api endpoint for creating new blog from - admin panel
