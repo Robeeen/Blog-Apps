@@ -16,6 +16,7 @@ export async function GET(request){
 }
 
 export async function POST(request){
+
     const formData = await request.formData();
     const timeStamp = Date.now();
 
@@ -27,8 +28,7 @@ export async function POST(request){
     await writeFile(path, buffer);
     const imgUrl = `/${timeStamp}_${image.name}`;
 
-    //test
-    console.log(imgUrl);
+    //get data from the form
 
     const blogData = {
         title: `${formData.get('title')}`,
