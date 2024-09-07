@@ -27,15 +27,16 @@ const page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userData = {
-      title: data.title,
-      description: data.description,
-      category: data.category,
-      author: data.author,
-      authorImg:  data.authorImg,
-      image: data.image
-    };
-    const response = await axios.post('/api/blog', userData);
+
+    const formData = new FormData();
+    formData.append('title', data.title),
+    formData.append('description', data.description),
+    formData.append('category', data.category),
+    formData.append('author', data.author),
+    formData.append('authorImg', data.authorImg),
+    formData.append('image', image)
+    
+    const response = await axios.post('/api/blog', formData);
     if(response.data.success){
       toast.success(response.data.msg)
     }else{
@@ -57,12 +58,12 @@ const page = () => {
         <input onChange={(e) => setImage(e.target.files[0])} type="file" id='image' hidden required />
 
         <p className='text-xl mt-7'>Blog Title</p>
-        <input className='w-full sm:w-[500] mt-4 px-4 py-3 border' type='text' name='title' onChange={onChangeHandler} value={data.title} placeholder='Blog title' required />
+        <input className='w-full sm:w-[500] mt-3 px-4 py-3 border' type='text' name='title' onChange={onChangeHandler} value={data.title} placeholder='Blog title' required />
 
         <p className='text-xl mt-7'>Blog Description</p>
-        <textarea className='w-full sm:w-[500] mt-4 px-4 py-3 border' type='text' name='description' onChange={onChangeHandler} value={data.description} rows={6} placeholder='Blog Description' required />
+        <textarea className='w-full sm:w-[500] mt-3 px-4 py-3 border' type='text' name='description' onChange={onChangeHandler} value={data.description} rows={6} placeholder='Blog Description' required />
 
-        <p className='text-xl mt-7'>Blog Category</p>
+        <p className='text-xl mt-3'>Blog Category</p>
         <select name='category' onChange={onChangeHandler} value={data.category} className='w-40 mt-4 px-4 py-3 border text-grey-500'>
           <option value="Startup">Startup</option>
           <option value="Technology">Technology</option>
