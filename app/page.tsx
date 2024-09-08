@@ -1,9 +1,9 @@
-import SingleBlog from "@/Components/front-end/SingleBlog"
+import BlogList from "@/Components/front-end/BlogList"
 
 export default function Page() {
   return (<>
   <h1>Hello, Next.js!</h1>  
-  <SingleBlog />
+  <BlogList />
   
   
   </>)
