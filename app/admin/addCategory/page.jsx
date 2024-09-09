@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
+import axios from 'axios'
 
 const page = () => {
 
@@ -13,7 +14,7 @@ const page = () => {
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setData({...data, [name]: value});
+        setData(data => ({...data, [name]: value}));
         console.log(data);
     };
 
@@ -26,12 +27,20 @@ const page = () => {
         formData.append('slug', data.slug);
 
         const response = await axios.post('/api/category', formData);
+       
+        if(response.data.success){
+            toast.success(response.data.msg);
+            setData({
+                name: '',
+                description: '',
+                slug: ''
+            });
+        }else{
+            toast.error("Error");
+        }
 
-        
 
     }
-
-
 
     return (
         <>
