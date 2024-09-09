@@ -26,7 +26,7 @@ const BlogList = () => {
                             <SingleBlog
                                 key={index}
                                 title={item.title}
-                                descriptions={item.descriptions}
+                                description={item.descriptions}
                                 date={item.date}
                                 category={item.category}
                                 id={item._id}
