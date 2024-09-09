@@ -2,17 +2,32 @@
 import { assets } from '@/Assets/assets'
 import axios from 'axios'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
 const page = () => {
 
   const [image, setImage] = useState(false);
 
+  //To get list from category --- Start-----
+  const [ category, setCategoy ] = useState([]);
+
+
+  const fetchList = async () => {
+    const response = await axios.get('/api/category');
+    setCategoy(response.data.category);
+    console.log(response.data.category);
+  }
+
+  useEffect(() => {
+    fetchList();
+  }, []);
+   //To get list from category --- Ends-----
+
   const [data, setData] = useState({
     title: '',
     description: '',
-    category: 'Startup',
+    category: '',
     author: 'Alex',
     authorImg: '/author_img.png'
   });
@@ -43,7 +58,7 @@ const page = () => {
       setData({
         title: '',
         description: '',
-        category: 'Startup',
+        category: '',
         author: 'Alex',
         authorImg: '/author_img.png' //reset form post submit
       });
@@ -71,10 +86,17 @@ const page = () => {
 
         <p className='text-xl mt-3'>Blog Category</p>
         <select name='category' onChange={onChangeHandler} value={data.category} className='w-40 mt-4 px-4 py-3 border text-grey-500'>
-          <option value="Startup">Startup</option>
+         {category.map((item, index) => {
+          return(
+            <option key={index} value={item.name}>{item.name}</option>
+          )
+          
+         })}
+          {/* <option value="Startup">Startup</option>
           <option value="Technology">Technology</option>
-          <option value="LifeStype">LifeStype</option>
+          <option value="LifeStype">LifeStype</option> */}
         </select>
+
         <br />
 
         <button type='submit' className='mt-8 w-40 h-12 bg-black text-white'>Add Blog</button>
