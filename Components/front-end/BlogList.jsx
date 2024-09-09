@@ -21,7 +21,7 @@ const BlogList = () => {
    <>
            { blogs.map((item, index) => {
                 return (
-                    <div key={index} >
+                    <div key={index}>
                     Title: {item.title} <br />
                     Description: {item.descriptions} <br />
                     Date: {item.date} <br />
