@@ -21,6 +21,10 @@ const Sidebar = () => {
                         <Image src={assets.add_icon} width={28} alt='icon' /><p>Add Category</p>
                     </Link>
 
+                    <Link href='/admin/allCategory' className='flex mt-3 items-center border broder-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]'>
+                        <Image src={assets.add_icon} width={28} alt='icon' /><p>All Category</p>
+                    </Link>
+
                     <Link href='/admin/blogList' className='flex mt-3 items-center border broder-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]'>
                         <Image src={assets.add_icon} width={28} alt='icon' /><p>All Blogs</p>
                     </Link>
