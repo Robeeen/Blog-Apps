@@ -1,6 +1,7 @@
 import { writeFile } from "fs/promises";
 import { ConnectDB } from "@/lib/config/db";
 import BlogModel from "@/lib/models/BlogModel"
+import CategoryModel from "@/lib/models/CategoryModel";
 
 const { NextResponse } = require("next/server")
 
@@ -16,6 +17,8 @@ export async function GET(request){
     const blogs = await BlogModel.find({});
     return NextResponse.json({blogs})
 }
+
+
 
 //creat an api endpoint for creating new blog from - admin panel
 export async function POST(request){
@@ -43,7 +46,8 @@ export async function POST(request){
     }
 
     await BlogModel.create(blogData);
-    console.log("Blog Saved.");
+    console.log("Blog Saved.");    
 
     return NextResponse.json({success: true, msg: "Blog Added."});
 }
+

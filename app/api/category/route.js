@@ -1,4 +1,4 @@
-import { writeFile } from "fs/promises";
+
 import { ConnectDB } from "@/lib/config/db";
 import CategoryModel from "@/lib/models/CategoryModel"
 
@@ -33,4 +33,11 @@ console.log('Category Saved');
 
 return NextResponse.json({success: true, msg: "Category Saved"})
 
+}
+
+  //Delete request
+  export async function DELETE(request){
+    const id = await request.nextUrl.searchParams.get('id');
+    await CategoryModel.findByIdAndDelete(id);
+    return NextResponse.json({msg:"Category Deleted"});
 }

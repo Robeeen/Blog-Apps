@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import  CategoryAll from '@/Components/adminComponents/CategoryAll'
 
 
+
 const page = () => {
   const [category, setCategoy] = useState([]);
 
@@ -14,13 +15,15 @@ const page = () => {
     console.log(response.data.category);
   }
 
+  // --- To Delete a Catgory from the list ---
   const deleteList = async (mongoId) => {
     const response = await axios.delete('/api/category', {
       params: {
-        id:mongoId,
+        id: mongoId,
+        method: "DELETE"
       }
     });
-    toast.success(response.data.deleteList);
+    toast.success(response.data.msg);
     fetchList();
   };
 
@@ -34,7 +37,7 @@ const page = () => {
       <div className='ml-10'>
         {category.map((item, index) => {
           return (
-            <CategoryAll key={index} mongoId={item._id} name={item.name} deleteList={deleteList}/>
+            <CategoryAll key={index} mongoId={item._id} name={item.name} slug={item.slug} deleteList={deleteList}/>
           )
         })}
       </div>
