@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-
+import SingleBlog from '@/Components/front-end/SingleBlog'
 
 const BlogList = () => {
 
-    const [ blogs, setBlogs ] = useState([]);
-    
+    const [blogs, setBlogs] = useState([]);
+
     const fetchBlogs = async () => {
         const response = await axios.get('/api/blog');
         setBlogs(response.data.blogs);
@@ -17,27 +17,29 @@ const BlogList = () => {
         fetchBlogs();
     }, []);
 
-  return (
-   <>
-           { blogs.map((item, index) => {
-                return (
-                    <div key={index}>
-                    Title: {item.title} <br />
-                    Description: {item.descriptions} <br />
-                    Date: {item.date} <br />
-                    Category: {item.category} <br />
-                    Author: {item.author} <br />
-                    ID: {item._id} <br />
-                    Image: <img src={item.image} height="10%" width="100px" />
-                    <hr />
-                    </div>
-                )
-            }
-            )
-        }
-   
-   </>
-  )
+    return (
+        <>
+            <div className='flex justify-center gap-6 my-10'>
+                <div className='flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24'>
+                    {blogs.map((item, index) => {
+                        return (
+                            <SingleBlog
+                                key={index}
+                                title={item.title}
+                                descriptions={item.descriptions}
+                                date={item.date}
+                                category={item.category}
+                                id={item._id}
+                                author={item.author}
+                                image={item.image} />
+                                )
+                            }
+                        )
+                    }
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default BlogList
