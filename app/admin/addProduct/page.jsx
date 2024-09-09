@@ -27,7 +27,7 @@ const page = () => {
   const [data, setData] = useState({
     title: '',
     description: '',
-    category: '',
+    category: 'Cosmetics',
     author: 'Alex',
     authorImg: '/author_img.png'
   });
