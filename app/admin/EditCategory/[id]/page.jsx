@@ -10,7 +10,7 @@ const page = () => {
     const {id} = useParams('_id');
 
     const fetchList = async () => {
-    const response = await axios.get('/api/category');
+    const response = await axios.get('/api/category', +id);
     setCategoy(response.data.category);
     console.log(response.data.category);
   }   
@@ -28,28 +28,6 @@ const page = () => {
         //console.log(data);
     };
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     const formData = new FormData();
-    //     formData.append('name', data.name);
-    //     formData.append('description', data.description);
-    //     formData.append('slug', data.slug);
-
-    //     const response = await axios.post('/api/category', formData);
-       
-    //     if(response.data.success){
-    //         toast.success(response.data.msg);
-    //         setData({
-    //             name: '',
-    //             description: '',
-    //             slug: ''
-    //         });
-    //     }else{
-    //         toast.error("Error");
-    //     }
-    // }
-
     return (
         <>
        
@@ -63,7 +41,7 @@ const page = () => {
 
                 <button type='submit' className='mt-8 w-40 h-12 bg-black text-white'>Save Changes</button>
             </form>
-            {category.name}
+          
         </>
 
     )
