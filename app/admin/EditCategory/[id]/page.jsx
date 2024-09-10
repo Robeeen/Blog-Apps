@@ -19,8 +19,6 @@ const page = () => {
     fetchList();
   }, [])
 
-
-
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -57,9 +55,9 @@ const page = () => {
 
                 <button type='submit' className='mt-8 w-40 h-12 bg-black text-white'>Save Changes</button>
             </form>
-
+            
         </>
-
+        // *** Due to Warning: A component is changing an uncontrolled input of type text to be controlled. I have used  || '' in input value={ || ''}
     )
 }
 
