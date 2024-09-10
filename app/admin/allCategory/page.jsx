@@ -10,11 +10,13 @@ const page = () => {
   const fetchList = async () => {
     const response = await axios.get('/api/category');
     setCategoy(response.data.category);
-    console.log(response.data.category);
+    //console.log(response.data.category);
   }
 
   // --- To Delete a Catgory from the list ---
   const deleteList = async (mongoId) => {
+    const confirmed = confirm('Are you sure?');
+    if(confirmed){
     const response = await axios.delete('/api/category', {
       params: {
         id: mongoId,
@@ -24,6 +26,7 @@ const page = () => {
     toast.success(response.data.msg);
     fetchList();
   };
+}
 
   useEffect(() => {
     fetchList();
