@@ -39,3 +39,9 @@ export async function DELETE(request) {
     await CategoryModel.findByIdAndDelete(id);
     return NextResponse.json({ msg: "Category Deleted" });
 }
+
+//Edit Request
+
+export async function PUT(request) {
+    
+}

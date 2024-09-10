@@ -2,9 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
-import  CategoryAll from '@/Components/adminComponents/CategoryAll'
-
-
+import CategoryAll from '@/Components/adminComponents/CategoryAll'
 
 const page = () => {
   const [category, setCategoy] = useState([]);
@@ -37,7 +35,13 @@ const page = () => {
       <div className='ml-10'>
         {category.map((item, index) => {
           return (
-            <CategoryAll key={index} mongoId={item._id} name={item.name} slug={item.slug} deleteList={deleteList}/>
+            <CategoryAll key={index} 
+            mongoId={item._id} 
+            name={item.name} 
+            slug={item.slug} 
+            deleteList={deleteList}       
+            
+            />
           )
         })}
       </div>
