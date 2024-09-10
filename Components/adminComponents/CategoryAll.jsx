@@ -13,7 +13,7 @@ const CategoryAll = ({ mongoId, name, slug, deleteList }) => {
         <Link href={`/admin/EditCategory/${mongoId}`}>
           <p className='ml-5 mt-5 px-1 inline-block bg-black text-white text-sm cursor-pointer'>Edit</p>
         </Link>
-        <hr />
+        <hr className='mt-3' />
       </div>
 
     </>
