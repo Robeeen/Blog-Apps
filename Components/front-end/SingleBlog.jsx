@@ -11,6 +11,7 @@ const SingleBlog = ({title, id, description, category, image, author, date}) => 
       <div className="p-5">
         <h5 className='mb-2 text-lg font-medium tracking-tight text-gre-900'>{title}</h5>
         <p className='mb-3 text-small tracking-tight text-grey-700'>Author: {author}</p>
+        <p>Date Posting: {date.slice(0, 10)}</p>
         <p className='mb-3 text-small tracking-tight text-grey-300'>{description.slice(0, 100)}</p>
         <div className='inline-flex items-center py-2 font-semibold text-center '>
           Read More <Image src={assets.arrow} alt='arrow' width={12} className='ml-2' />
