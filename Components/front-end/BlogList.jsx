@@ -5,7 +5,10 @@ import axios from 'axios';
 import SingleBlog from '@/Components/front-end/SingleBlog'
 
 const BlogList = () => {
+    //create a menu to sort filter blogs 
+    const [ menu, setMenu ] = useState['All'];
 
+    //display all blogs data here.
     const [blogs, setBlogs] = useState([]);
 
     const fetchBlogs = async () => {
@@ -20,6 +23,8 @@ const BlogList = () => {
     return (
         <>
             <div className='flex justify-center gap-6 my-10'>
+                <button onClick={()=>setMenu('All')} className={menu == "All" ? 'bg-black } />
+
                 <div className='flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24'>
                     {blogs.map((item, index) => {
                         return (
