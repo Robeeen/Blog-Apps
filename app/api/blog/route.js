@@ -12,8 +12,7 @@ const LoadDB = async () => {
 LoadDB();
 
 //create an api endpoint to fetch all blog post from front-end
-export async function GET(request){
-    
+export async function GET(request){    
     const blogs = await BlogModel.find({});
     return NextResponse.json({blogs})
 }
@@ -22,7 +21,6 @@ export async function GET(request){
 
 //creat an api endpoint for creating new blog from - admin panel
 export async function POST(request){
-
     const formData = await request.formData();
 
     //get the image from the blog
@@ -51,3 +49,8 @@ export async function POST(request){
     return NextResponse.json({success: true, msg: "Blog Added."});
 }
 
+//create an api for Update-Edit record of Blog post
+
+export async function PUT(request, {param}){
+    
+}
