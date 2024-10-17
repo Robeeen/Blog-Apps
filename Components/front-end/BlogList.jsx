@@ -6,7 +6,7 @@ import SingleBlog from '@/Components/front-end/SingleBlog'
 
 const BlogList = () => {
     //create a menu to sort filter blogs 
-    const [ menu, setMenu ] = useState['All'];
+    const [ menu, setMenu ] = useState("All");
 
     //display all blogs data here.
     const [blogs, setBlogs] = useState([]);
@@ -23,7 +23,12 @@ const BlogList = () => {
     return (
         <>
             <div className='flex justify-center gap-6 my-10'>
-                <button onClick={()=>setMenu('All')} className={menu == "All" ? 'bg-black } />
+                <button onClick={()=>setMenu('All')} className={menu === "All" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>All</button>
+                <button onClick={()=>setMenu('All')} className={menu === "cosmetics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Cosmetics</button>
+                <button onClick={()=>setMenu('All')} className={menu === "female" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Female</button>
+                <button onClick={()=>setMenu('All')} className={menu === "electronics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>electronics</button>
+                <button onClick={()=>setMenu('All')} className={menu === "furnitures" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>furnitures</button>    
+            </div>
 
                 <div className='flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24'>
                     {blogs.map((item, index) => {
@@ -41,8 +46,7 @@ const BlogList = () => {
                             }
                         )
                     }
-                </div>
-            </div>
+                </div>            
         </>
     )
 }
