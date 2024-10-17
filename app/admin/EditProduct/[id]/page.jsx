@@ -15,10 +15,13 @@ const page = () => {
     }
 
     useEffect(() => {
-        fetchBlogs
+        fetchBlogs();
     }, []);
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+
 
     }
 

@@ -13,7 +13,7 @@ LoadDB();
 
 export async function PUT(request, {param}){
     const { id } = param;
-    const { newTitle, newDescription, newCategory, newAuthor, newImage, newAuthorImg } = await request.json();
+    const { newTitle: title, newDescription: description, newCategory:category, newAuthor:author, newImage:image, newAuthorImg:authorImg } = await request.json();
     await BlogModel.findByIdAndUpdate(id, {title, description, category, author, image, authorImg});
     return NextResponse.json({ success: true, msg: "Blog is Updated" });
 }
