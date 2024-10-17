@@ -1,7 +1,6 @@
 import { writeFile } from "fs/promises";
 import { ConnectDB } from "@/lib/config/db";
-import BlogModel from "@/lib/models/BlogModel"
-import CategoryModel from "@/lib/models/CategoryModel";
+import BlogModel from "@/lib/models/BlogModel";
 
 const { NextResponse } = require("next/server")
 
@@ -49,8 +48,3 @@ export async function POST(request){
     return NextResponse.json({success: true, msg: "Blog Added."});
 }
 
-//create an api for Update-Edit record of Blog post
-
-export async function PUT(request, {param}){
-    
-}
