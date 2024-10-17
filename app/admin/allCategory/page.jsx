@@ -16,17 +16,17 @@ const page = () => {
   // --- To Delete a Catgory from the list ---
   const deleteList = async (mongoId) => {
     const confirmed = confirm('Are you sure?');
-    if(confirmed){
-    const response = await axios.delete('/api/category', {
-      params: {
-        id: mongoId,
-        method: "DELETE"
-      }
-    });
-    toast.success(response.data.msg);
-    fetchList();
-  };
-}
+    if (confirmed) {
+      const response = await axios.delete('/api/category', {
+        params: {
+          id: mongoId,
+          method: "DELETE"
+        }
+      });
+      toast.success(response.data.msg);
+      fetchList();
+    };
+  }
 
   useEffect(() => {
     fetchList();
@@ -38,12 +38,12 @@ const page = () => {
       <div className='ml-10'>
         {category.map((item, index) => {
           return (
-            <CategoryAll key={index} 
-            mongoId={item._id} 
-            name={item.name} 
-            slug={item.slug} 
-            deleteList={deleteList}       
-            
+            <CategoryAll key={index}
+              mongoId={item._id}
+              name={item.name}
+              slug={item.slug}
+              deleteList={deleteList}
+
             />
           )
         })}
