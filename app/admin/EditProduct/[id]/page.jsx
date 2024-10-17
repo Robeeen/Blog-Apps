@@ -17,12 +17,31 @@ const page = () => {
     useEffect(() => {
         fetchBlogs();
     }, []);
+    
+    const onChangeHandler = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setCategoy(data => ({...data, [name]: value}));
+        //console.log(data);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
 
+        const res = await axios.put(`/api/blog/${id}` {
+            newName: blogs.title,
+            newDescription: blogs.description,
+            newCategory: blogs.category,
+            newAuthor: blogs.author,
+            newImage: blogs.image,
+            newAuthorImg: blogs.authorImg
+        });
 
+        if(res.data.success){
+            toast.success(res.data.msg); 
+        }else{
+            toast.error("Error");
+        }
     }
 
     return (
@@ -33,7 +52,7 @@ const page = () => {
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
-                    name='name' value={blogs.name || ''}
+                    name='title' value={blogs.title || ''}
                     placeholder='Blog Title' required
                 />
                 <p className='text-xl mt-7'>Blogs Descriptions: </p>
@@ -64,28 +83,13 @@ const page = () => {
                     name='author' value={blogs.author || ''}
                     placeholder='Blog Author' required
                 />
-                 <p className='text-xl mt-7'>Blogs Image: </p>
+                <p className='text-xl mt-7'>Blogs Image: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
                     name='image' value={blogs.image || ''}
-                    placeholder='Blog Image' required 
+                    placeholder='Blog Image' required
                 />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </form>
         </>
     )
