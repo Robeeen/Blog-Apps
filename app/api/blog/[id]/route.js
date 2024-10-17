@@ -19,7 +19,7 @@ export async function PUT(request, {param}){
 }
 
 export async function GET(request, {param}){
-    const { id } = params;
+    const { id } = param;
     const blog = await BlogModel.findOne({_id: id});
     return NextResponse.json({ blog}, {status: 200});
 }

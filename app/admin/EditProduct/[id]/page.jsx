@@ -17,7 +17,7 @@ const page = () => {
     useEffect(() => {
         fetchBlogs();
     }, []);
-    
+
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -28,7 +28,7 @@ const page = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const res = await axios.put(`/api/blog/${id}` {
+        const res = await axios.put(`/api/blog/${id}`, {
             newName: blogs.title,
             newDescription: blogs.description,
             newCategory: blogs.category,
@@ -93,7 +93,7 @@ const page = () => {
             </form>
         </>
     )
-
-
 }
+
+export default page
 
