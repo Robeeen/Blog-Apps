@@ -26,7 +26,7 @@ const page = () => {
         <>
 
             <form onSubmit={handleSubmit} className='pt-5 px-5 sm:pt-12 sm:pl-16'>
-                <p className='text-xl mt-7'>Blogs Title: </p>
+                <p className='text-xl mt-7'>Blogs Title:  </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
@@ -66,7 +66,7 @@ const page = () => {
                     type='text'
                     onChange={onChangeHandler}
                     name='image' value={blogs.image || ''}
-                    placeholder='Blog Image' required
+                    placeholder='Blog Image' required 
                 />
 
 
