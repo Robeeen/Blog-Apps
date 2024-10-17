@@ -24,14 +24,15 @@ const BlogList = () => {
         <>
             <div className='flex justify-center gap-6 my-10'>
                 <button onClick={()=>setMenu('All')} className={menu === "All" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>All</button>
-                <button onClick={()=>setMenu('All')} className={menu === "cosmetics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Cosmetics</button>
-                <button onClick={()=>setMenu('All')} className={menu === "female" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Female</button>
-                <button onClick={()=>setMenu('All')} className={menu === "electronics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>electronics</button>
-                <button onClick={()=>setMenu('All')} className={menu === "furnitures" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>furnitures</button>    
+                <button onClick={()=>setMenu('Cosmetics')} className={menu === "Cosmetics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Cosmetics</button>
+                <button onClick={()=>setMenu('Female')} className={menu === "Female" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Female</button>
+                <button onClick={()=>setMenu('Electronics')} className={menu === "Electronics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>electronics</button>
+                <button onClick={()=>setMenu('Furnituress')} className={menu === "Furnituress" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Furnituress</button>    
+                <button onClick={()=>setMenu('Technology')} className={menu === "Technology" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Technology</button>  
             </div>
 
                 <div className='flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24'>
-                    {blogs.map((item, index) => {
+                    {blogs.filter((item)=> menu === "All" ? true : item.category === menu).map((item, index) => {
                         return (
                             <SingleBlog
                                 key={index}
