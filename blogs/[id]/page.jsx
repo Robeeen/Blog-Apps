@@ -29,7 +29,8 @@ const page = ({params}) => {
                     <Image src={assets.logo} width={180} alt='' className='w-[130px] sm:w-auto' />
                 </Link>
                 <button className='flex item-center gap-2 font-medium'>
-                    
+                    Get Started <Image src={assets.arrow} alt='' />
+
                 </button>
             </div>
         </div>
