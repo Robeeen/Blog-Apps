@@ -2,13 +2,13 @@
 import React from 'react'
 import Link from 'next/link'
 
-const BlogsAll = ({mongoId, title, author, image, description, authorImg}) =>{
+const BlogsAll = ({mongoId, title, author, deleteBlog}) =>{
     return (
         <>
           <div>
-            Title: {title} 
+            Title: {title} - Author: {author}
             <p className='ml-5 mt-5 px-1 inline-block bg-black text-white text-sm cursor-pointer'
-              onClick={() => deleteList(mongoId)}>Delete</p>
+              onClick={() => deleteBlog(mongoId)}>Delete</p>
     
             <Link href={`/admin/EditProduct/${mongoId}`}>
               <p className='ml-5 mt-5 px-1 inline-block bg-black text-white text-sm cursor-pointer'>Edit</p>

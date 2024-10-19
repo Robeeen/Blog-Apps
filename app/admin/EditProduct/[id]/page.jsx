@@ -12,7 +12,7 @@ const page = () => {
     const fetchBlogs = async () => {
         const response = await axios.get(`/api/blog/${id}`);
         setBlogs(response.data.blogs);
-    }
+    };
 
     useEffect(() => {
         fetchBlogs();
@@ -21,8 +21,8 @@ const page = () => {
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setCategoy(data => ({...data, [name]: value}));
-        //console.log(data);
+        setBlogs(data => ({...data, [name]: value}));
+        console.log('Event Data:', data);
     };
 
     const handleSubmit = async (e) => {
@@ -59,7 +59,7 @@ const page = () => {
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
-                    name='description' value={description || ''}
+                    name='description' value={blogs.description || ''}
                     placeholder='Blog Description' required
                 />
                 <p className='text-xl mt-7'>Blogs Date: </p>

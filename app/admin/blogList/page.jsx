@@ -5,16 +5,16 @@ import { toast } from 'react-toastify';
 import BlogsAll from '@/Components/adminComponents/BlogsAll'
 
 const page = () => {
-  const [blogs, setBlogs] = useState([]);
+  const [blog, setBlog] = useState([]);
 
   const fetchList = async () => {
     const response = await axios.get('/api/blog');
-    setBlogs(response.data.blogs);
+    setBlog(response.data.blog);
     //console.log(response.data.category);
   }
 
   // --- To Delete a Catgory from the list ---
-  const deleteList = async (mongoId) => {
+  const deleteBlog = async (mongoId) => {
     const confirmed = confirm('Are you sure?');
     if (confirmed) {
       const response = await axios.delete('/api/blog', {
@@ -36,12 +36,13 @@ const page = () => {
     <>
       <div className='mt-10 mb-10 ml-10 text-center'>Display all Blogs and Edit</div>
       <div className='ml-10'>
-        {blogs.map((item, index) => {
+        {blog.map((item, index) => {
           return (
             <BlogsAll key={index}
               mongoId={item._id}
-              title={item.title}              
-              deleteList={deleteList}
+              title={item.title}   
+              author={item.author}           
+              deleteBlog={deleteBlog}
             />
           )
         })}
