@@ -15,8 +15,8 @@ export async function GET(request){
     const blogId = request.nextUrl.searchParams.get("id");
 
     if(blogId){
-        const blog = await BlogModel.findById(blogId);
-        return NextResponse.json(blog);
+        const blogs = await BlogModel.findById(blogId);
+        return NextResponse.json(blogs);
     }else{
         const blogs = await BlogModel.find({});
         return NextResponse.json({blogs})
