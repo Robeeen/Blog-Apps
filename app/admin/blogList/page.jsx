@@ -5,11 +5,11 @@ import { toast } from 'react-toastify';
 import BlogsAll from '@/Components/adminComponents/BlogsAll'
 
 const page = () => {
-  const [blog, setBlog] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   const fetchList = async () => {
     const response = await axios.get('/api/blog');
-    setBlog(response.data.blog);
+    setBlogs(response.data.blogs);
     //console.log(response.data.category);
   }
 
@@ -30,13 +30,13 @@ const page = () => {
 
   useEffect(() => {
     fetchList();
-  });
+  }, []);
 
   return (
     <>
       <div className='mt-10 mb-10 ml-10 text-center'>Display all Blogs and Edit</div>
       <div className='ml-10'>
-        {blog.map((item, index) => {
+        {blogs.map((item, index) => {
           return (
             <BlogsAll key={index}
               mongoId={item._id}
