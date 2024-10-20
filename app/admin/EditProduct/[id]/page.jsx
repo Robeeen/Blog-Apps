@@ -5,13 +5,13 @@ import axios from 'axios'
 import { useParams } from 'next/navigation'
 
 const page = () => {
-    const [blogs, setBlogs] = useState({});
+    const [blog, setBlog] = useState({});
     const { id } = useParams('_id');
 
     //To fetch and display before edit
     const fetchBlogs = async () => {
         const response = await axios.get(`/api/blog/${id}`);
-        setBlogs(response.data.blogs);
+        setBlog(response.data.blog);
     };
 
     useEffect(() => {
@@ -21,20 +21,20 @@ const page = () => {
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setBlogs(data => ({...data, [name]: value}));
-        console.log('Event Data:', data);
+        setBlog(data => ({...data, [name]: value}));
+        
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const res = await axios.put(`/api/blog/${id}`, {
-            newName: blogs.title,
-            newDescription: blogs.description,
-            newCategory: blogs.category,
-            newAuthor: blogs.author,
-            newImage: blogs.image,
-            newAuthorImg: blogs.authorImg
+            newTitle: blog.title,
+            newDescription: blog.description,
+            newCategory: blog.category,
+            newAuthor: blog.author,
+            newImage: blog.image,
+            newAuthorImg: blog.authorImg
         });
 
         if(res.data.success){
@@ -52,44 +52,46 @@ const page = () => {
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
-                    name='title' value={blogs.title || ''}
+                    name='title' value={blog.title || ''}
                     placeholder='Blog Title' required
                 />
                 <p className='text-xl mt-7'>Blogs Descriptions: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
-                    name='description' value={blogs.description || ''}
+                    name='description' value={blog.description || ''}
                     placeholder='Blog Description' required
                 />
                 <p className='text-xl mt-7'>Blogs Date: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
-                    name='date' value={blogs.date || ''}
+                    name='date' value={blog.date || ''}
                     placeholder='Blog Date' required
                 />
                 <p className='text-xl mt-7'>Blogs Category: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
-                    name='category' value={blogs.category || ''}
+                    name='category' value={blog.category || ''}
                     placeholder='Blog Category' required
                 />
                 <p className='text-xl mt-7'>Blogs Author: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
-                    name='author' value={blogs.author || ''}
+                    name='author' value={blog.author || ''}
                     placeholder='Blog Author' required
                 />
                 <p className='text-xl mt-7'>Blogs Image: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
-                    name='image' value={blogs.image || ''}
+                    name='image' value={blog.image || ''}
                     placeholder='Blog Image' required
                 />
+
+<button type='submit' className='mt-8 w-40 h-12 bg-black text-white'>Save Changes</button>
             </form>
         </>
     )

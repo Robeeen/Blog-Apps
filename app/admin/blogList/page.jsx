@@ -41,7 +41,8 @@ const page = () => {
             <BlogsAll key={index}
               mongoId={item._id}
               title={item.title}   
-              author={item.author}           
+              author={item.author}  
+              date={item.date}         
               deleteBlog={deleteBlog}
             />
           )
