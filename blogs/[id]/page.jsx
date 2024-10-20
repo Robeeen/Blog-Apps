@@ -9,7 +9,7 @@ const page = ({params}) => {
     const [ data, setData ] = useState(null);
 
     const fetchBlogData = async () => {
-        const response = await axios.get('/api/blog' .{
+        const response = await axios.get('/api/blog', {
             params: {
                 id: params.id
             }
@@ -30,11 +30,13 @@ const page = ({params}) => {
                 </Link>
                 <button className='flex item-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_0px+#000]'>
                     Get Started <Image src={assets.arrow} alt='' />
-
-                </button>
+                </button>                
+            </div>
+            <div className='text-center my-24'>
+                <h1>{data.title}</h1>
             </div>
         </div>
-    </>: ''
+    </>: <></>
 
     )
 }
