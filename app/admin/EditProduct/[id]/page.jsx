@@ -46,44 +46,45 @@ const page = () => {
 
     return (
         <>
+            <h2 className='pt-5 text-center pb-0 font-bold text-xl'>Edit records</h2>
+            <form onSubmit={handleSubmit} className='px-5 sm:pt-10 sm:pl-16'>
 
-            <form onSubmit={handleSubmit} className='pt-5 px-5 sm:pt-12 sm:pl-16'>
-                <p className='text-xl mt-7'>Blogs Title:  </p>
+                <p className='sm:pt-10'>Blogs Title:  </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
                     name='title' value={blog.title || ''}
                     placeholder='Blog Title' required
                 />
-                <p className='text-xl mt-7'>Blogs Descriptions: </p>
+                <p className='sm:pt-10'>Blogs Descriptions: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
-                    type='text'
+                    type='textarea'
                     onChange={onChangeHandler}
                     name='description' value={blog.description || ''}
                     placeholder='Blog Description' required
                 />
-                <p className='text-xl mt-7'>Blogs Date: </p>
+                <p className='sm:pt-10'>Blogs Date: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
                     name='date' value={blog.date || ''}
                     placeholder='Blog Date' required
                 />
-                <p className='text-xl mt-7'>Blogs Category: </p>
+                <p className='sm:pt-10'>Blogs Category: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
                     name='category' value={blog.category || ''}
                     placeholder='Blog Category' required
                 />
-                <p className='text-xl mt-7'>Blogs Author: </p>
+                <p className='sm:pt-10'>Blogs Author: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
                     name='author' value={blog.author || ''}
                     placeholder='Blog Author' required
                 />
-                <p className='text-xl mt-7'>Blogs Image: </p>
+                <p className='sm:pt-10'>Blogs Image: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
