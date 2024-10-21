@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { assets } from '@/Assets/assets'
 
 const BlogsAll = ({ mongoId, title, author, deleteBlog, date, authorImg }) => {
+
   return (
     <>
       <tr className='bg-white border-b'>
@@ -21,12 +22,12 @@ const BlogsAll = ({ mongoId, title, author, deleteBlog, date, authorImg }) => {
           {date ? date.slice(0, 10) : 'no date'}
         </td>
         <td className='px-6 py-4'>
-          <p className='ml-5 mt-5 px-1 inline-block bg-black text-white text-sm cursor-pointer'
+          <p className='mt-5 px-1 inline-block bg-black text-white text-sm cursor-pointer'
             onClick={() => deleteBlog(mongoId)}>Delete</p>
         </td>
         <td className='px-6 py-4'>
           <Link href={`/admin/EditProduct/${mongoId}`}>
-            <p className='ml-5 mt-5 px-1 inline-block bg-black text-white text-sm cursor-pointer'>Edit</p>
+            <p className='mt-5 px-1 inline-block bg-black text-white text-sm cursor-pointer'>Edit</p>
           </Link>
         </td>
       </tr>

@@ -39,12 +39,12 @@ const page = () => {
         <table className='w-full text-sm text-gray-500'>
           <thead className='text-sm text bg-gray-200 text-left uppercase bg-black w-full'>
             <tr className='w-full'>
-              <th scope='col' className='px6 py-3'>Image</th>
-              <th scope='col' className='px6 py-3'>Title</th>
-              <th scope='col' className='px6 py-3'>Author</th>
-              <th scope='col' className='px6 py-3'>Date Posting</th>
-              <th scope='col' className='px6 py-3'>Delete</th>
-              <th scope='col' className='px6 py-3'>Edit</th>
+              <th scope='col' className='px-6 py-3 '>Image</th>
+              <th scope='col' className='px-6 py-3'>Title</th>
+              <th scope='col' className='px-6 py-3'>Author</th>
+              <th scope='col' className='px-6 py-3'>Date Posting</th>
+              <th scope='col' className='px-6 py-3'>Delete</th>
+              <th scope='col' className='px-6 py-3'>Edit</th>
             </tr>
           </thead>
           <tbody>
