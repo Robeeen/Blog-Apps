@@ -55,6 +55,7 @@ const page = () => {
               author={item.author}  
               date={item.date}         
               deleteBlog={deleteBlog}
+              authorImg={item.authorImg}
             />
           )
         })}
