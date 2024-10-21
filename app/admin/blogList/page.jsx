@@ -35,7 +35,18 @@ const page = () => {
   return (
     <>
       <div className='mt-10 mb-10 ml-10 text-center'>Display all Blogs and Edit</div>
-      <div className='ml-10'>
+      <div className='relative h-[100vh] max-w-[1150px] overflow-x-auto border border-gray-400'>
+        <table className='w-full text-sm text-gray-500'>
+          <thead className='text-sm text bg-gray-700 text-left uppercase bg-black '>
+            <tr>
+              <td>Title</td>
+              <td>Author</td>
+              <td>Date Posting</td>
+              <td>Delete</td>
+              <td>Edit</td>
+              </tr>
+          </thead>
+        <tbody>
         {blogs.map((item, index) => {
           return (
             <BlogsAll key={index}
@@ -47,6 +58,8 @@ const page = () => {
             />
           )
         })}
+        </tbody>
+          </table>
       </div>
     </>
   )

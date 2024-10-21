@@ -12,7 +12,6 @@ const page = () => {
     const fetchList = async () => {
         const response = await axios.get(`/api/category/${id}`);
         setCategoy(response.data.category);
-        // console.log(response.data.category);
     }
 
     useEffect(() => {
@@ -23,7 +22,6 @@ const page = () => {
         const name = event.target.name;
         const value = event.target.value;
         setCategoy(data => ({ ...data, [name]: value }));
-        //console.log(data);
     };
 
     const handleSubmit = async (e) => {
@@ -44,7 +42,6 @@ const page = () => {
 
     return (
         <>
-
             <form onSubmit={handleSubmit} className='pt-5 px-5 sm:pt-12 sm:pl-16'>
                 <p className='text-xl mt-7'>Category Name: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
