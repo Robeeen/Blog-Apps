@@ -10,7 +10,7 @@ const page = () => {
   const [image, setImage] = useState(false);
 
   //To get list from category --- Start-----
-  const [ category, setCategoy ] = useState([]);
+  const [category, setCategoy] = useState([]);
 
 
   const fetchList = async () => {
@@ -22,7 +22,7 @@ const page = () => {
   useEffect(() => {
     fetchList();
   }, []);
-   //To get list from category --- Ends-----
+  //To get list from category --- Ends-----
 
   const [data, setData] = useState({
     title: '',
@@ -44,15 +44,15 @@ const page = () => {
 
     const formData = new FormData();
     formData.append('title', data.title),
-    formData.append('description', data.description),
-    formData.append('category', data.category),
-    formData.append('author', data.author),
-    formData.append('authorImg', data.authorImg),
-    formData.append('image', image)
-    
+      formData.append('description', data.description),
+      formData.append('category', data.category),
+      formData.append('author', data.author),
+      formData.append('authorImg', data.authorImg),
+      formData.append('image', image)
+
     const response = await axios.post('/api/blog', formData);
 
-    if(response.data.success){
+    if (response.data.success) {
       toast.success(response.data.msg); //Toast notification
       setImage(false);
       setData({
@@ -62,7 +62,7 @@ const page = () => {
         author: 'Alex',
         authorImg: '/author_img.png' //reset form post submit
       });
-    }else{
+    } else {
       toast.error("Error"); //Toast notification
     }
 
@@ -86,15 +86,15 @@ const page = () => {
 
         <p className='text-xl mt-3'>Blog Category</p>
         <select name='category' onChange={onChangeHandler} value={data.category} className='w-40 mt-4 px-4 py-3 border text-grey-500'>
-         {category.map((item, index) => {
-          return(
-            <option key={index} value={item.name}>{item.name}</option>
-          )
+          {category.map((item, index) => {
+            return (
+              <option key={index} value={item.name}>
+                {item.name}
+              </option>
+            )
+
+          })}
           
-         })}
-          {/* <option value="Startup">Startup</option>
-          <option value="Technology">Technology</option>
-          <option value="LifeStype">LifeStype</option> */}
         </select>
 
         <br />

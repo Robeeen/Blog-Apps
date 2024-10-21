@@ -14,15 +14,24 @@ const page = () => {
         setBlog(response.data.blog);
     };
 
+    const [category, setCategoy] = useState([]);
+
+    //To fetch and display before edit
+    const fetchCats = async () => {
+        const response = await axios.get('/api/category');
+        setCategoy(response.data.category);
+    }
+
     useEffect(() => {
         fetchBlogs();
+        fetchCats();
     }, []);
 
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setBlog(data => ({...data, [name]: value}));
-        
+        setBlog(data => ({ ...data, [name]: value }));
+
     };
 
     const handleSubmit = async (e) => {
@@ -37,9 +46,9 @@ const page = () => {
             newAuthorImg: blog.authorImg
         });
 
-        if(res.data.success){
-            toast.success(res.data.msg); 
-        }else{
+        if (res.data.success) {
+            toast.success(res.data.msg);
+        } else {
             toast.error("Error");
         }
     }
@@ -71,12 +80,21 @@ const page = () => {
                     placeholder='Blog Date' required
                 />
                 <p className='sm:pt-10'>Blogs Category: </p>
-                <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
+                <select className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
                     onChange={onChangeHandler}
                     name='category' value={blog.category || ''}
                     placeholder='Blog Category' required
-                />
+                >
+                    {category.map((item, index) => {
+                        return (
+                            <option key={index} value={item.name}>
+                                {item.name}
+                            </option>
+                        )
+
+                    })}
+                </select>
                 <p className='sm:pt-10'>Blogs Author: </p>
                 <input className='w-full sm:w-[500] mt-3 px-4 py-3 border'
                     type='text'
