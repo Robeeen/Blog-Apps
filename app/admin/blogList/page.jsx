@@ -35,15 +35,15 @@ const page = () => {
   return (
     <>
       <div className='mt-10 mb-10 ml-10 text-center'>Display all Blogs and Edit</div>
-      <div className='relative h-[100vh] max-w-[1150px] overflow-x-auto border border-gray-400'>
+      <div className='relative h-[100vh] max-w-[1150px] overflow-x-auto border border-gray-400 scrollbar-hide'>
         <table className='w-full text-sm text-gray-500'>
-          <thead className='text-sm text bg-gray-700 text-left uppercase bg-black '>
+          <thead className='text-sm text bg-gray-200 text-left uppercase bg-black '>
             <tr>
-              <td>Title</td>
-              <td>Author</td>
-              <td>Date Posting</td>
-              <td>Delete</td>
-              <td>Edit</td>
+              <th scope='col' className='hidden sm:block px6 py-3'>Title</th>
+              <th scope='col' className='hidden sm:block px6 py-3'>Author</th>
+              <th scope='col' className='hidden sm:block px6 py-3'>Date Posting</th>
+              <th scope='col' className='hidden sm:block px6 py-3'>Delete</th>
+              <th scope='col' className='hidden sm:block px6 py-3'>Edit</th>
               </tr>
           </thead>
         <tbody>
