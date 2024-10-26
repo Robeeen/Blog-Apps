@@ -45,8 +45,8 @@ const page = ({params}) => {
             <p className=''>{data.description}</p>
             <br />
             <Link href={`/`} >
-            Go Back <Image src={assets.arrow} alt='arrow' width={12} className='ml-2' />
-          </Link>
+            <p className='mt-5 px-2 py-1 inline-block bg-black text-white text-sm'>Go Back</p> 
+            </Link>
             
         </div>
        
