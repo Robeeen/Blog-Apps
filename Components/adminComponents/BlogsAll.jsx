@@ -4,6 +4,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { assets } from '@/Assets/assets'
 
+export const metadata = {
+  title: 'Controll Blogs Data',
+  description: 'The official Next.js Course Dashboard, built with App Router.',
+};
+
 const BlogsAll = ({ mongoId, title, author, deleteBlog, date, category, authorImg }) => {
 
   return (
