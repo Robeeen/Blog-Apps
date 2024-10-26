@@ -43,7 +43,13 @@ const page = ({params}) => {
             <Image src={data.image} className='border-4 border-white' width={1280} height={720} alt='' />
             <h1 className='my-8 text-[26px] font-semibold'>Introductions</h1>
             <p className=''>{data.description}</p>
+            <br />
+            <Link href={`/`} >
+            Go Back <Image src={assets.arrow} alt='arrow' width={12} className='ml-2' />
+          </Link>
+            
         </div>
+       
         <div className='mx-5 max-w-[800px] md:mx-auto mt-[100px]'>
             <div className="flex">
                 <Image src={assets.facebook_icon} width={50} />
