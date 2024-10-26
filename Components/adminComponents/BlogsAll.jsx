@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { assets } from '@/Assets/assets'
 
-const BlogsAll = ({ mongoId, title, author, deleteBlog, date, authorImg }) => {
+const BlogsAll = ({ mongoId, title, author, deleteBlog, date, category, authorImg }) => {
 
   return (
     <>
@@ -16,7 +16,10 @@ const BlogsAll = ({ mongoId, title, author, deleteBlog, date, authorImg }) => {
           {title ? title : 'no title'}
         </td>
         <td className='px-6 py-4'>
-          {author ? author : 'no author'}
+          {category ? category : 'no cat'}          
+        </td>
+        <td className='px-6 py-4'>
+         {author ? author : 'no author'}
         </td>
         <td className='px-6 py-4'>
           {date ? date.slice(0, 10) : 'no date'}

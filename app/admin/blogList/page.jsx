@@ -41,6 +41,7 @@ const page = () => {
             <tr className='w-full'>
               <th scope='col' className='px-6 py-3 '>Image</th>
               <th scope='col' className='px-6 py-3'>Title</th>
+              <th scope='col' className='px-6 py-3'>Category</th>
               <th scope='col' className='px-6 py-3'>Author</th>
               <th scope='col' className='px-6 py-3'>Date Posting</th>
               <th scope='col' className='px-6 py-3'>Delete</th>
@@ -53,6 +54,7 @@ const page = () => {
                 <BlogsAll key={index}
                   mongoId={item._id}
                   title={item.title}
+                  category={item.category}
                   author={item.author}
                   date={item.date}
                   deleteBlog={deleteBlog}
