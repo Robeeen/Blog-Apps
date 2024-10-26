@@ -26,7 +26,8 @@ const BlogList = () => {
                 <button onClick={()=>setMenu('All')} className={menu === "All" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>All</button>
                 <button onClick={()=>setMenu('Cosmetics')} className={menu === "Cosmetics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Cosmetics</button>
                 <button onClick={()=>setMenu('Females')} className={menu === "Females" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Female</button>
-                <button onClick={()=>setMenu('Electronics')} className={menu === "Electronics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>electronics</button>
+                <button onClick={()=>setMenu('Travel')} className={menu === "Travel" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Travel</button>
+                <button onClick={()=>setMenu('Electronics')} className={menu === "Electronics" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Electronics</button>
                 <button onClick={()=>setMenu('Furnituress')} className={menu === "Furnituress" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Furnituress</button>    
                 <button onClick={()=>setMenu('Technology')} className={menu === "Technology" ? 'bg-black text-white py-1 px-4 rounded-sm' : ''}>Technology</button>  
             </div>
