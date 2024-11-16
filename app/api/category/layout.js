@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-
+//Trying to add the Title for Category.
 
 export const metadata: Metadata = {
   title: "Category",
